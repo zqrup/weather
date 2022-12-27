@@ -17,5 +17,3 @@ function getWeatherData(position){
     }
   );
 }
-
-
