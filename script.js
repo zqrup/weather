@@ -1,9 +1,9 @@
-let city = "Domburg"
-getWeatherData();
+navigator.geolocation.getCurrentPosition(getWeatherData);
 
-function getWeatherData(){
+function getWeatherData(position){
+  let userLocation = "lat=" + position.coords.latitude + "&" + "lon=" + position.coords.longitude;
   $.getJSON(
-    "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&appid=d1b42716cdb097a4a13abdc36c715e8a", 
+    "https://api.openweathermap.org/data/2.5/weather?" + userLocation + "&units=metric&appid=d1b42716cdb097a4a13abdc36c715e8a", 
     function(data){
       console.log(data);
 
@@ -20,24 +20,4 @@ function getWeatherData(){
   );
 }
 
-$(document).ready(function(){
-  $("#btnCity").click(function(){
-      city = $("#inpCity").val();
-      getWeatherData();
-  });
-});
 
-getLocation();
-
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else {
-    console.log("Geolocation is not supported by this browser.");
-  }
-}
-
-function showPosition(position) {
-  console.log("Latitude: " + position.coords.latitude +
-  "  Longitude: " + position.coords.longitude);
-}
