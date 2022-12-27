@@ -5,7 +5,6 @@ function getWeatherData(position){
   $.getJSON(
     "https://api.openweathermap.org/data/2.5/weather?" + userLocation + "&units=metric&appid=d1b42716cdb097a4a13abdc36c715e8a", 
     function(data){
-      console.log(data);
 
       var temp = Math.round(data.main.temp);
       city = data.name;
