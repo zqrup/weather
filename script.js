@@ -6,10 +6,9 @@ function getWeatherData(position){
     "https://api.openweathermap.org/data/2.5/weather?" + userLocation + "&units=metric&appid=" + key, 
     function(data){
 
-      var temp = Math.round(data.main.temp);
-      city = data.name;
-      var icon = "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
-      var weather = data.weather[0].main;
+      let temp = Math.round(data.main.temp);
+      let icon = "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+      let weather = data.weather[0].main;
 
       $(".temp").html(temp + "&deg;");
       $(".city").html(city);
