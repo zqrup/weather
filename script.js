@@ -1,4 +1,5 @@
 navigator.geolocation.getCurrentPosition(getWeatherData);
+alert("niggerballs");
 
 function getWeatherData(position){
   let userLocation = "lat=" + position.coords.latitude + "&" + "lon=" + position.coords.longitude;
@@ -10,7 +11,6 @@ function getWeatherData(position){
       let temp = Math.round(data.main.temp);
       let icon = "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
       let weather = data.weather[0].main;
-      alert("niggerballs");
 
       $(".temp").html(temp + "&deg;");
       $(".city").html(city);
