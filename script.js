@@ -1,5 +1,4 @@
 navigator.geolocation.getCurrentPosition(getWeatherData);
-alert("niggerballs");
 
 function getWeatherData(position){
   let userLocation = "lat=" + position.coords.latitude + "&" + "lon=" + position.coords.longitude;
